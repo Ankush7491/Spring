@@ -29,9 +29,11 @@ public class VehicleConfiguration {
 	     Properties configProperties= new Properties();
 	     configProperties.setProperty("driverClassName", "com.mysql.jdbc.Driver"); 
 	     String urlString="jdbc:mysql://localhost/spring_jdbc";
-	     configProperties.setProperty("username", "neha");
-	     configProperties.setProperty("password", "1234");
-	     configProperties.setProperty("url", "spring_jdbc");
+			/*
+			 * configProperties.setProperty("username", "neha");
+			 * configProperties.setProperty("password", "1234");
+			 * configProperties.setProperty("url", "spring_jdbc");
+			 */
 	     DriverManagerDataSource dataSource= new DriverManagerDataSource(urlString,"neha","1234");
 	     dataSource.setConnectionProperties(configProperties);
 	     return dataSource;

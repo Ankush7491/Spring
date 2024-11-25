@@ -21,7 +21,7 @@ public class App
         JdbcTemplate vehicleJdbcTemplate= context.getBean(JdbcTemplate.class);
 //        DriverManagerDataSource dataSource=context.getBean(DriverManagerDataSource.class);
   //      System.out.println(dataSource.getUrl()+"  username"+dataSource.getUsername()+"  password"+dataSource.getPassword()+ " properties"+dataSource.getConnectionProperties());
-        String queryString="insert into vehicle(id,make) values(2796,\"hyundai\")";
+        String queryString="insert into vehicle(id,make) values(2798,\"hyundai\")";
         vehicleJdbcTemplate.execute(queryString);
         
     }
