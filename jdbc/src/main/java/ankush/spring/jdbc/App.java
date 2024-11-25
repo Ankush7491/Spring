@@ -32,6 +32,9 @@ public class App
         Vehicle vehicle= new Vehicle();
         vehicle.setId(12);
         vehicle.setMakeString("Tata");
-        vehicleDao.insert(vehicle);
+  //      vehicleDao.insert(vehicle);
+        vehicle.setMakeString("Tatas");
+        vehicleDao.update(vehicle);
+        System.out.println(vehicleDao.delete(vehicle));
     }
 }

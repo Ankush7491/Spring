@@ -6,4 +6,5 @@ public interface VehicleDao {
 
 	public int insert(Vehicle vehicle);
 	public int update(Vehicle vehicle);
+	public int delete(Vehicle vehicle);
 }

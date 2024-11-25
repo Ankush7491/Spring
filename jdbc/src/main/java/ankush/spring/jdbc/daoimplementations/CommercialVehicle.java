@@ -27,9 +27,15 @@ public class CommercialVehicle implements VehicleDao {
 	public int update(Vehicle vehicle) {
 		// TODO Auto-generated method stub
 		int rows;
-		 String queryString="insert into vehicle(id,make) values(?,?)";		 
-	        rows=jdbcTemplate.update(queryString, String.valueOf(vehicle.getId()),vehicle.getMakeString());
+		 String queryString="update vehicle set make=? where id=?";		 
+	        rows=jdbcTemplate.update(queryString,vehicle.getMakeString(),String.valueOf(vehicle.getId()));
 		return rows;
 	}
-
+	public int delete(Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		int rows;
+		 String queryString="delete from vehicle where id=?";		 
+	        rows=jdbcTemplate.update(queryString,String.valueOf(vehicle.getId()));
+		return rows;
+	}
 }
