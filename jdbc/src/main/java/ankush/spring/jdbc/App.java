@@ -3,8 +3,6 @@ package ankush.spring.jdbc;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.embedded.DataSourceFactory;
 
 import ankush.spring.jdbc.beans.Vehicle;
 import ankush.spring.jdbc.configuration.VehicleConfiguration;
@@ -30,11 +28,12 @@ public class App
 	 */ 
         VehicleDao vehicleDao=context.getBean(CommercialVehicle.class);
         Vehicle vehicle= new Vehicle();
-        vehicle.setId(12);
-        vehicle.setMakeString("Tata");
-  //      vehicleDao.insert(vehicle);
-        vehicle.setMakeString("Tatas");
-        vehicleDao.update(vehicle);
-        System.out.println(vehicleDao.delete(vehicle));
+        Double tempIDouble=Math.random();
+        vehicle.setId(9800);
+        vehicle.setMakeString("Merc");
+        vehicleDao.insert(vehicle);
+       // vehicle.setMakeString("Tatas");
+      //  vehicleDao.update(vehicle);
+       System.out.println(vehicleDao.getVehicle(9800).toString());
     }
 }

@@ -38,4 +38,13 @@ public class CommercialVehicle implements VehicleDao {
 	        rows=jdbcTemplate.update(queryString,String.valueOf(vehicle.getId()));
 		return rows;
 	}
+	
+	public Vehicle getVehicle(int id) {
+		// TODO Auto-generated method stub
+		Vehicle vehicle;
+		 String queryString="select * from vehicle where id=?";	
+		 	CommercialVehicleMapper rowMapper=new CommercialVehicleMapper();
+	        vehicle= jdbcTemplate.queryForObject(queryString,rowMapper,id);
+	         return vehicle;
+	}
 }
