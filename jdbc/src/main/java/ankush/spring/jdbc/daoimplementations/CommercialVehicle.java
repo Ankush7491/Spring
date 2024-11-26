@@ -1,5 +1,7 @@
 package ankush.spring.jdbc.daoimplementations;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -46,5 +48,13 @@ public class CommercialVehicle implements VehicleDao {
 		 	CommercialVehicleMapper rowMapper=new CommercialVehicleMapper();
 	        vehicle= jdbcTemplate.queryForObject(queryString,rowMapper,id);
 	         return vehicle;
+	}
+	public List<Vehicle> getVehicles() {
+		// TODO Auto-generated method stub
+		List<Vehicle> vehicles;
+		 String queryString="select * from vehicle";	
+		 	CommercialVehicleMapper rowMapper=new CommercialVehicleMapper();
+	        vehicles= jdbcTemplate.query(queryString,rowMapper);
+	         return vehicles;
 	}
 }

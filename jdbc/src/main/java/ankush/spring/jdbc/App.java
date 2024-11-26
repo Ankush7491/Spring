@@ -27,13 +27,13 @@ public class App
 	 * vehicleJdbcTemplate.execute(queryString);
 	 */ 
         VehicleDao vehicleDao=context.getBean(CommercialVehicle.class);
-        Vehicle vehicle= new Vehicle();
-        Double tempIDouble=Math.random();
-        vehicle.setId(9800);
-        vehicle.setMakeString("Merc");
-        vehicleDao.insert(vehicle);
-       // vehicle.setMakeString("Tatas");
-      //  vehicleDao.update(vehicle);
+		/*
+		 * Vehicle vehicle= new Vehicle(); Double tempIDouble=Math.random();
+		 * vehicle.setId(9800); vehicle.setMakeString("Merc");
+		 * vehicleDao.insert(vehicle); vehicle.setMakeString("Tatas");
+		 * vehicleDao.update(vehicle);
+		 */
        System.out.println(vehicleDao.getVehicle(9800).toString());
+       System.out.println(vehicleDao.getVehicles().toString());
     }
 }
