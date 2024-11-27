@@ -2,7 +2,6 @@ package ankush.spring.hibernate;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import ankush.spring.hibernate.configurations.HibernateConfiguration;
 import ankush.spring.hibernate.dao.AccessoryDao;
@@ -17,15 +16,25 @@ public class HibernateApp
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(HibernateConfiguration.class);
-        System.out.println(applicationContext.getBean(DriverManagerDataSource.class).toString());
-        System.out.println(applicationContext.getBean(DriverManagerDataSource.class).toString());
-        
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(HibernateConfiguration.class); 
         AccessoryDao accessoryDao=applicationContext.getBean(AccessoryDao.class); 
         Accessory accessory=new Accessory();
-        accessory.setAccessoryName("Silverlining");
-        accessory.setType("Decorative");
-        int rows=accessoryDao.saveAccessory(accessory);
-        System.out.println(rows);
+        accessory.setAccessoryName("MusicSystem");
+        accessory.setType("Fun");
+		/*
+		 * int rows=accessoryDao.saveAccessory(accessory); System.out.println(rows);
+		 *        System.out.println(accessoryDao.getAccessories().toString());
+		 *        */
+        accessory.setId(3);
+        accessory.setType("Music");
+        try {
+        	accessoryDao.updateAccessory(accessory);	
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println(e.getMessage());
+		}
+        System.out.println(accessoryDao.getAccessory(3).toString());
+        
+        
     }
 }

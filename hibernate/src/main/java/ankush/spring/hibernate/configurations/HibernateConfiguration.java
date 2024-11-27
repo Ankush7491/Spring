@@ -38,6 +38,7 @@ public class HibernateConfiguration {
 		hibernateProperties.setProperty("hibernate.connection.url",urlString);
 		hibernateProperties.setProperty("hibernate.connection.username", "neha");
 		hibernateProperties.setProperty("hibernate.connection.password", "1234");
+		hibernateProperties.setProperty("hibernate.connection.autocommit", "true");
 		LocalSessionFactoryBuilder sessionBuilder=new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.scanPackages("ankush.spring.hibernate.entities");
 		sessionBuilder.setProperties(hibernateProperties);
