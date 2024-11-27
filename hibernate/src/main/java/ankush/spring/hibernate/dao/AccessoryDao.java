@@ -28,13 +28,17 @@ public class AccessoryDao{
 		rows=(Integer)this.hibernateTemplate.save(accessory);
 		return rows;
 	}
+	@Transactional
+	public void persistAccessory(Accessory accessory) {
+        this.hibernateTemplate.persist(accessory);
+	}
 	
 	@Transactional(propagation=Propagation.REQUIRED,readOnly=false)
 	public void updateAccessory(Accessory accessory) {
 		Accessory accessory2=getAccessory(accessory.getId());
 		accessory2.setType(accessory.getType());
 		System.out.println("Accessory from DB after update "+accessory2.toString());
-		this.hibernateTemplate.saveOrUpdate(accessory2);
+		this.hibernateTemplate.update(accessory2);
 	}
 	
 	@Transactional

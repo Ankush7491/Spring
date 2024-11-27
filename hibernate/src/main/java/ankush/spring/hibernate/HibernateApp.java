@@ -19,13 +19,11 @@ public class HibernateApp
         ApplicationContext applicationContext=new AnnotationConfigApplicationContext(HibernateConfiguration.class); 
         AccessoryDao accessoryDao=applicationContext.getBean(AccessoryDao.class); 
         Accessory accessory=new Accessory();
-        accessory.setAccessoryName("MusicSystem");
+        accessory.setAccessoryName("VideoScreen");
         accessory.setType("Fun");
-		/*
-		 * int rows=accessoryDao.saveAccessory(accessory); System.out.println(rows);
-		 *        System.out.println(accessoryDao.getAccessories().toString());
-		 *        */
-        accessory.setId(3);
+        accessoryDao.persistAccessory(accessory);
+        System.out.println(accessoryDao.getAccessories().toString());
+        accessory.setId(5);
         accessory.setType("Music");
         try {
         	accessoryDao.updateAccessory(accessory);	
